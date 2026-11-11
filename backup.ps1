@@ -35,6 +35,7 @@ function Copy-Backup {              # Copies files from source to destination
 function Test-Backup {              # Checks if backup was successful
     param($Source, $Destination)
     $files = Get-ChildItem -Path $Source -File
+    $MissingFiles = @()
 
     foreach ($file in $files) {
         if (Test-Path "$Destination\$($file.Name)") {
@@ -44,7 +45,19 @@ function Test-Backup {              # Checks if backup was successful
         else {
             Write-Host "$($file.name) is missing"
             Write-Log "$($file.Name) is missing"
+
+            $MissingFiles += $file.Name
         }
+    }
+
+    if ($MissingFiles.Count -gt 0) {
+        Write-Host "Missing files:"
+        foreach ($MissingFile in $MissingFiles) {
+            Write-Host "- $MissingFile"
+        }
+    }
+    else {
+        Write-Host "All files have been backed up successfully."
     }
 }
 
