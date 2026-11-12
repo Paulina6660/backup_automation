@@ -10,7 +10,7 @@ function Write-Log {                # Writes to logg function
     param($Message)
 
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    Add-Content -Path "$ProjectFolder\Logs\logg.txt" -Value "$timestamp - $Message"
+    Add-Content -Path "$ProjectFolder\Logs\info.txt" -Value "$timestamp - $Message"
 }
 
 function Copy-Backup {              # Copies files from source to destination

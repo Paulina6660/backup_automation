@@ -23,7 +23,7 @@ resource "local_file" "backup_folder" {
 }
 
 resource "local_file" "logs_folder" {
-    filename = "${var.project_folder}logs/info.txt"
+    filename = "${var.project_folder}logs/logg.txt"
     content = "Backup logs"
 }
 
