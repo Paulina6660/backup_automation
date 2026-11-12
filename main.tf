@@ -9,7 +9,7 @@ terraform {
 provider "local" {}
 
 variable "project_folder" {
-    default = "../"
+    default = "./"
 }
 
 resource "local_file" "data_folder" {

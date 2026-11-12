@@ -22,8 +22,8 @@ function Copy-Backup {              # Copies files from source to destination
         foreach ($file in $files) {
             Copy-Item -Path $file.FullName -Destination $Destination -ErrorAction Stop
 
-            Write-Host "File $(file.Name) has been copied"
-            Write-Log "File $(file.Name) has been copied"
+            Write-Host "File $($file.Name) has been copied"
+            Write-Log "File $($file.Name) has been copied"
         }
     }
     catch {
